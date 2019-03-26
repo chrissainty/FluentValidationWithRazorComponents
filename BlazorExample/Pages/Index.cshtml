@@ -1,0 +1,43 @@
+﻿@page "/"
+@using FluentValidation
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+<hr />
+
+<EditForm Model="@Person" OnValidSubmit="@SubmitValidForm">
+    <FluentValidationsValidator />
+    <ValidationSummary />
+
+    <p>
+        <label>Name: </label>
+        <InputText bind-Value="@Person.Name" />
+    </p>
+
+    <p>
+        <label>Age: </label>
+        <InputNumber bind-Value="@Person.Age" />
+    </p>
+
+    <p>
+        <label>Email Address: </label>
+        <InputText bind-Value="@Person.EmailAddress" />
+    </p>
+
+    <button type="submit">Save</button>
+
+</EditForm>
+
+@functions {
+    Person Person { get; set; } = new Person();
+    IValidator Validator = new PersonValidator();
+
+    void SubmitValidForm()
+    {
+        Console.WriteLine("Form Submitted Successfully!");
+    }
+}
