@@ -1,5 +1,4 @@
 ﻿@page "/"
-@using FluentValidation
 
 <h1>Hello, world!</h1>
 
@@ -10,7 +9,7 @@ Welcome to your new app.
 <hr />
 
 <EditForm Model="@Person" OnValidSubmit="@SubmitValidForm">
-    <FluentValidationsValidator />
+    <FluentValidationValidator />
     <ValidationSummary />
 
     <p>
@@ -34,7 +33,6 @@ Welcome to your new app.
 
 @functions {
     Person Person { get; set; } = new Person();
-    IValidator Validator = new PersonValidator();
 
     void SubmitValidForm()
     {

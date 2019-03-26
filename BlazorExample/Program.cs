@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Blazor.Hosting;
 
-namespace BlazorFluentValidations
+namespace BlazorExample
 {
     public class Program
     {
